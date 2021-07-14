@@ -3,14 +3,59 @@ include <../../lib/lib2.scad>
 //include <../../lib/lib2/lib2_prop.scad>
 //include <../../lib/lib2/lib2_servo.scad>
 
-//wingHolderSingle(isAdhesion=false, length=100, rx=180);
+
 //wingMainNACA(isAdhesion=true);
 //wingMainNACA_V(isAdhesion=true, length =100);
+//wingChassis();
+//wingHolderSingle(isAdhesion=false);
+//wingHolderSingle(isAdhesion=true, length=120, rx=180);
 
 function naca_half_thickness(x,t) = 5*t*(0.2969*sqrt(x) - 0.1260*x - 0.3516*pow(x,2) + 0.2843*pow(x,3) - 0.1015*pow(x,4));
 function naca_top_coordinates(t,n) = [ for (x=[0:1/(n-1):1]) [x, naca_half_thickness(x,t)]];
 function naca_bottom_coordinates(t,n) = [ for (x=[1:-1/(n-1):0]) [x, - naca_half_thickness(x,t)]];
 function naca_coordinates(t,n) = concat(naca_top_coordinates(t,n), naca_bottom_coordinates(t,n));
+
+module wingChassis(px=0,py=0,pz=0, rx=0,ry=0,rz=0, chord = 30, length=200, isAdhesion=false){
+    translate([(px), (py), pz])
+    rotate([rx,ry,rz])
+    rotate([90,0,180])
+    {
+        difference(){
+            union(){
+                translate([0,-12,length/4+4])
+                rotate([15,0,0])        
+                    linear_extrude(height=length/2-10, center=true) {                    
+                    points = naca_coordinates(t=0.38,n=300);
+                        scale([chord,chord,1])
+                        polygon(points);
+                }//linear_extrude
+                translate([0,-12,-length/4-4])
+                rotate([-15,0,0])        
+                    linear_extrude(height=length/2-10, center=true) {                    
+                    points = naca_coordinates(t=0.38,n=300);
+                        scale([chord,chord,1])
+                        polygon(points);
+                }//linear_extrude    
+                
+                yMinkCubeSphere(35,chord*0.38,30,    5, chord/2);        
+                yMinkCubeCyl(chord,30,28,    13,     chord/2, -24,length/2-15,       90, sx=3);
+                yMinkCubeCyl(chord,30,28,    13,     chord/2, -24,-length/2+15,      90, sx=3);
+            }//union
+            for (i=[5:20:25]){     
+                yCyl(1.8,20,    i,0,10,     90);
+                yCyl(1.8,20,    i,0,-10,    90);     
+            }//for
+    
+            for (i=[5:20:40]){                     
+                yCyl(0.8,20,    i,-15,-95,    0);     
+                yCyl(0.8,20,    i,-35,-95,     0);
+        
+                yCyl(0.8,20,    i,-15,95,    0);     
+                yCyl(0.8,20,    i,-35,95,     0);
+            }//for
+        }//difference        
+    }//transform    
+}//module     
 
 module wingMainNACA_V(px=0,py=0,pz=0, rx=0,ry=0,rz=0, chord = 40, length=100, isAdhesion=false, isHoles=true){
     translate([(px), (py), pz])
@@ -88,7 +133,7 @@ module wingMainNACA(px=0,py=0,pz=0, rx=0,ry=0,rz=0, chord = 40, length=100, isAd
         }//isAdhesion
 }//module            
 
-module wingHolderSingle(px=0,py=0,pz=0, rx=0,ry=0,rz=0, length=100, chord=40, isAdhesion=false, angle=8){
+module wingHolderSingle(px=0,py=0,pz=0, rx=0,ry=0,rz=0, length=120, chord=40, isAdhesion=false, angle=8){
     translate([(px), (py), pz])
     rotate([rx,ry,rz]){
         difference(){
@@ -117,14 +162,17 @@ module wingHolderSingle(px=0,py=0,pz=0, rx=0,ry=0,rz=0, length=100, chord=40, is
                 yCyl(0.9,20,    10,0,0);
                 yCyl(0.9,20,   -10,0,0);
             }//translate                     
+            yCyl(1.8,20,    10,0,length-5,   90);
+            yCyl(1.8,20,    10,0,length-25,   90);
+            yCyl(1.8,20,    -10,0,length-5,   90);
+            yCyl(1.8,20,    -10,0,length-25,  90);
         }//difference        
-        difference(){
-            yMinkCubeCyl(chord, 29,5, 3, 0,0,length);
-            yCyl(1.8,20,    10,10,length);
-            yCyl(1.8,20,    10,-10,length);
-            yCyl(1.8,20,    -10,10,length);
-            yCyl(1.8,20,    -10,-10,length);
-        }//difference
+        if(isAdhesion){
+            yCyl(5,0.7, 24,0,length-0.35);
+            yCyl(5,0.7, -24,0,length-0.35);
+            yCyl(5,0.7, 10,7,length-0.35);
+            yCyl(5,0.7, 10,-7,length-0.35);
+            }//isAdhesion
     }//transform
 }//module            
 
