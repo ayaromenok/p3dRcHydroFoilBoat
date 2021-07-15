@@ -76,8 +76,10 @@ module fuselage_front(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=fa
         //battery holder
         battery_holder(70,18,0, 0,0,90);
         battery_holder(70,-22,0, 0,0,90);
-        yCube(50,4,1,   25,20,9.5);
-        yCube(50,4,1,   25,-20,9.5);
+        yCube(50,4,2,   25,20,9);
+        yCube(50,4,2,   25,-20,9);
+        yCube(4,4,8,   2,20,4.5);
+        yCube(4,4,8,   2,-20,4.5);
         //nervure
         yPoly(p=[[40,0],[50,30],[45,30],[35,5],[-35,5],[-45,30],[-50,30],[-40,0],],szz=6, px=0,py=0,pz=0, rx=90,ry=0, rz=90);
          
