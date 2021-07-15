@@ -4,6 +4,7 @@ include <../../lib/lib2.scad>
 //include <../../lib/lib2/lib2_servo.scad>
 
 //fuselage_front(ry=-90);
+//fuselage_back(ry=90);
 //fuselage_back(-100);
 
           
@@ -147,6 +148,29 @@ module fuselage_back(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=fal
             for (i=[10:20:40]){
                 yCyl(5,20,    i,10,0);
                 yCyl(5,20,    i,-10,0);
+            }//for
+        }//difference
+         //battery holder
+        battery_holder(80,18,0, 0,0,90);
+        battery_holder(80,-22,0, 0,0,90);
+        yCube(60,4,2,   30,20,9);
+        yCube(60,4,2,   30,-20,9);
+        yCube(4,4,8,   2,20,4.5);
+        yCube(4,4,8,   2,-20,4.5);
+        //nervure
+        yPoly(p=[[40,0],[50,30],[45,30],[35,5],[-35,5],[-45,30],[-50,30],[-40,0],],szz=6, px=94,py=0,pz=0, rx=90,ry=0, rz=90);
+         
+        //top connector
+        difference(){
+            yCube(96,4,4,   52,46,28);
+            for (i=[10:20:110]){
+                yCyl(0.8,20,    i,46,28);                
+            }//for
+        }//difference
+        difference(){
+            yCube(96,4,4,   52,-46,28);
+            for (i=[10:20:110]){
+                yCyl(0.8,20,    i,-46,28);                
             }//for
         }//difference
     }//transform
