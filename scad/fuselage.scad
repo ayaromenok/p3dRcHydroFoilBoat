@@ -3,7 +3,7 @@ include <../../lib/lib2.scad>
 //include <../../lib/lib2/lib2_prop.scad>
 //include <../../lib/lib2/lib2_servo.scad>
 
-//fuselage_front(ry=-90);
+fuselage_front(ry=-90);
 //fuselage_back(ry=90);
 //fuselage_back(-100);
 
@@ -33,7 +33,7 @@ module fuselage_front(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=fa
             rotate([0,-35,0])
             difference(){
                 yPoly(p=[[40,0],[50,30],[-50,30],[-40,0]],szz=60, px=0,py=0,pz=0, rx=90,ry=0, rz=90);
-                yPoly(p=[[39,0],[49,30],[-49,30],[-39,0]],szz=62, px=-1,py=0,pz=1, rx=90,ry=0, rz=90);
+                yPoly(p=[[39,0],[49,30],[-49,30],[-39,0]],szz=62, px=-1,py=0,pz=2, rx=90,ry=0, rz=90);
             }//difference
             yCube(70,130,40, 137,0,50);
             yCube(40,130,40, 96,0,10, 0,-17.5);
@@ -125,7 +125,7 @@ module fuselage_back(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=fal
             rotate([0,45,0])
             difference(){
                 yPoly(p=[[40,0],[50,30],[-50,30],[-40,0]],szz=60, px=0,py=0,pz=0, rx=90,ry=0, rz=90);
-                yPoly(p=[[39,0],[49,30],[-49,30],[-39,0]],szz=62, px=-1,py=0,pz=1, rx=90,ry=0, rz=90);
+                yPoly(p=[[39,0],[49,30],[-49,30],[-39,0]],szz=62, px=-1,py=0,pz=2, rx=90,ry=0, rz=90);
             }//difference
             yCube(70,110,40, -17,0,50);
             yCube(40,110,40, 25.8,0,10, 0,22.5);
@@ -137,7 +137,7 @@ module fuselage_back(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=fal
         difference(){
             difference(){
                 yPoly(p=[[40,0],[50,30],[-50,30],[-40,0]],szz=40, px=0,py=0,pz=0, rx=90,ry=0, rz=90);
-                yPoly(p=[[39,0],[49,30],[-49,30],[-39,0]],szz=42, px=-1,py=0,pz=3, rx=90,ry=0, rz=90);
+                yPoly(p=[[39,0],[49,30],[-49,30],[-39,0]],szz=42, px=-1,py=0,pz=4, rx=90,ry=0, rz=90);
             }//difference
             //connector to wings/engines        
             for (i=[-30:20:30]){
