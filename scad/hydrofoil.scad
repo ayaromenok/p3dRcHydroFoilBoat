@@ -163,16 +163,23 @@ module wingHolderSingle(px=0,py=0,pz=0, rx=0,ry=0,rz=0, length=120, chord=40, is
                 yCyl(0.9,20,   -10,0,0);
             }//translate                     
             yCyl(1.8,20,    10,0,length-5,   90);
-            yCyl(1.8,20,    10,0,length-25,   90);
             yCyl(1.8,20,    -10,0,length-5,   90);
+            yCyl(1.8,20,    10,0,length-25,   90);            
             yCyl(1.8,20,    -10,0,length-25,  90);
+            yCyl(1.8,20,    10,0,length-45,   90);
+            yCyl(1.8,20,    -10,0,length-45,   90);
+            yCyl(1.8,20,    10,0,length-65,   90);
+            yCyl(1.8,20,    -10,0,length-65,  90);
+            
         }//difference        
         if(isAdhesion){
             yCyl(5,0.7, 24,0,length-0.35);
             yCyl(5,0.7, -24,0,length-0.35);
             yCyl(5,0.7, 10,7,length-0.35);
             yCyl(5,0.7, 10,-7,length-0.35);
-            }//isAdhesion
+         }//isAdhesion
+         
+            
     }//transform
 }//module            
 
