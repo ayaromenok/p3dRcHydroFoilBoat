@@ -3,7 +3,7 @@ include <../../lib/lib2.scad>
 //include <../../lib/lib2/lib2_prop.scad>
 //include <../../lib/lib2/lib2_servo.scad>
 
-fuselage_front(ry=-90);
+//fuselage_front(ry=-90);
 //fuselage_back(ry=90);
 //fuselage_back(-100);
 

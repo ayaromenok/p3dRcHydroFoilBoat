@@ -350,7 +350,7 @@ module floatHiSpeed_center_v2(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
                 
                         translate([45+43.8,-1.5,0])
                         rotate([90,0,0])
-                        linear_extrude(197.6)
+                        linear_extrude(195.6)
                             polygon( points=[[0,30],[20,0],[0,-30], [4,-38.9],[-40,-38.9],[-40,38.9], [4,38.9]]);
                     }//difference
                     yCube(6,3,70,  53,-3,0);    
