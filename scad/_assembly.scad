@@ -16,16 +16,20 @@ wingHolderSingle(20,-100,-130,  180,180,180, length=120);
 wingChassis(35,0,0);
 
 //back wing
-wingMainNACA_V(-360,75,-120, 90,10,180);
+//wingChassis(-365,0,0);
+floatSupportWing(-380,0,-10);
+floatSupportWing(-380,0,-10, 0,0,180);
+floatSupport(-360,-180,5,  0,0,-90);
+floatSupport(-360,180,5,  0,0,-90);
+
+wingMainNACA_V(-360,175,-120, 90,10,180);
 mirror([0,1,0])
-wingHolderSingle(-380,-100,-130,  180,180,180, length=120);
+wingHolderSingle(-380,-200,-130,  180,180,180, length=120);
 
-wingMainNACA_V(-360,-125,-120, 90,10,180);
-wingHolderSingle(-380,-100,-130,  180,180,180, length=120);
-wingChassis(-365,0,0);
+wingMainNACA_V(-360,-225,-120, 90,10,180);
+wingHolderSingle(-380,-200,-130,  180,180,180, length=120);
 
-floatSupport(-360,-100,0,  0,0,-90);
-floatSupport(-360,100,0,  0,0,-90);
+
 
 fuselage_front(-200,0,0);
 fuselage_back(-300,0,0);
