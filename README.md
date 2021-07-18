@@ -16,11 +16,11 @@
 
 ### Issues
   - waterproofness of right support float (printing issue)
-  - small support floats
-  - support floats should be moved forward
-  - fuselage strength and connection need to be revisioned
-  - support for Jetson Nano carrier board required (wider fuselage required)
-  - support for Raspberry Pi required
+  - small support floats (#8)
+  - support floats should be moved forward(#9)
+  - fuselage strength and connection need to be revisioned(#10)
+  - support for Jetson Nano carrier board required (wider fuselage required)(#10)
+  - support for Raspberry Pi required(#10)
   
 ![HydroFoil boat](https://github.com/ayaromenok/p3dRcHydroFoilBoat/blob/master/png/real_v0.1.0.jpg?raw=true)
 ![HydroFoil boat](https://github.com/ayaromenok/p3dRcHydroFoilBoat/blob/master/png/scad_v0.1.0.png?raw=true)
