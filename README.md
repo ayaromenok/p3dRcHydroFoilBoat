@@ -9,7 +9,7 @@
 ## Introduction
 
 Hydrofoil boat with trimaran structure and differentional trust mix props.
-Impelented in OpenSCAD. To rebuild STL's required [p3d Lib2 0.2.2.20210615]https://github.com/ayaromenok/p3dLib
+Impelented in OpenSCAD. To rebuild STL's required [p3d Lib2 0.2.2.20210615](https://github.com/ayaromenok/p3dLib)
 
 ## Work In Progress status<a name="wip"></a>
 
