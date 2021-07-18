@@ -2,7 +2,7 @@ include <../../lib/lib2.scad>
 
 
 //2print
-floatSupport(ry=180);
+//floatSupport(ry=180);
 //floatSupportWing();
 //floatSupport();
 
