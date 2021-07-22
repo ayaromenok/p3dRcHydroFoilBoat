@@ -7,8 +7,27 @@ include <../../lib/lib2.scad>
 //floatSupportWing();
 //floatSupportWingFront();
 //floatSupport();
+//floatSupportConnector_L(rx=90);
 
-
+module floatSupportConnector_L(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
+    translate([(px),(py),pz])
+    rotate([rx,ry,rz])  
+    {
+        difference(){
+            minkowski(){
+                yPoly(p=[[0,0],[32,0],[32,4],[4,4],[4,24],[0,24]], szz=24);
+                ySphere(2);
+            }
+         for (i=[2:20:42]){
+                yCyl(0.8,20,    0,i,2, 0,90,0);
+                yCyl(0.8,20,    0,i,22, 0,90,0);
+                
+                yCyl(0.8,20,    i+8,0,2, 0,90,90);
+                yCyl(0.8,20,    i+8,0,22, 0,90,90);
+            }//for   
+        }
+    }//transform
+}//module
 module floatSupportWingFront(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     translate([(px),(py),pz])
     rotate([rx,ry,rz])  
