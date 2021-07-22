@@ -20,11 +20,11 @@ module floatHiSpeed_v2_assmebly(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
         floatHiSpeed_center_v2();
         floatHiSpeed_center_v2(0,-200,0);
         floatHiSpeed_front_top_v2_1(142,0,0,    0,180);
-        floatHiSpeed_front_top_v2_1_2(142,0,0,    0,180);
+        //floatHiSpeed_front_top_v2_1_2(142,0,0,    0,180);
         floatHiSpeed_center_top_v2_1(142,0,0,    0,180);
-        floatHiSpeed_center_top_v2_2(142,-200,0,    0,180);
+        //floatHiSpeed_center_top_v2_2(142,-200,0,    0,180);
         floatHiSpeed_center_top_v2_1(142,-200,0,    0,180);
-        floatHiSpeed_center_top_v2_3(142,-400,0,    0,180);
+        //floatHiSpeed_center_top_v2_3(142,-400,0,    0,180);
     }//transform
 }//module
 

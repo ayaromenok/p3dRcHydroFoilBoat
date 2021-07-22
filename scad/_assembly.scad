@@ -12,22 +12,22 @@ floatSupportWingFront(pz=-15.5);
 floatSupportWingFront(pz=-15.5,rz=180);
 floatSupport(20,-180,54,  0,0,-90);
 floatSupport(20,180,54,  0,0,-90);
-//wingMainNACA_V(40,75,-120, 90,10,180);
-//mirror([0,1,0])
-//wingHolderSingle(20,-100,-130,  180,180,180, length=120);
+wingMainNACA_V(20,181,-132, 90,10,180);
+wingHolderSingle(0,206,-140,  180,180,180, length=120);
 
-//wingMainNACA_V(40,-125,-120, 90,10,180);
-//wingHolderSingle(20,-100,-130,  180,180,180, length=120);
-//wingChassis(35,0,0);
+wingMainNACA_V(20,-231,-132, 90,10,180);
+wingHolderSingle(0,-206,-140,  180,180,180, length=120);
 
 //back wing
-//wingChassis(-365,0,0);
+;
 floatSupportWing(-380,0,-10);
 floatSupportWing(-380,0,-10, 0,0,180);
-//floatSupport(-360,-180,5,  0,0,-90);
-//floatSupport(-360,180,5,  0,0,-90);
-
-
+floatSupportConnector_L(-390,200,-15, -90,0,-90);
+floatSupportConnector_L(-370,-200,-15, -90,0,90);
+wingMainNACA_V(-360,177,-132,rx=90, rz=180, isAdhesion=false, length =100);
+wingHolderSingle(-380,202,-135,isAdhesion=false);
+wingMainNACA_V(-360,-227,-132,rx=90, rz=180, isAdhesion=false, length =100);
+wingHolderSingle(-380,-202,-135,isAdhesion=false);
 
 
 fuselage_engine_support(-200,0,-15);
