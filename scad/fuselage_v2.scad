@@ -36,6 +36,8 @@ module fuselage_engine_support(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, i
             //for fuselage connectors
             for (i=[-30:20:30]){
                 yCyl(0.8,20,    30,i,11);
+                yCyl(0.8,20,    10,i,11);
+                yCyl(0.8,20,    -10,i,11);
                 yCyl(0.8,20,    -30,i,11);
             }//for        
         }//difference
@@ -77,6 +79,7 @@ module fuselage_front(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=fa
             //for fuselage connectors
             for (i=[-30:20:30]){
                 yCyl(1.5,20,    30,i,0);
+                yCyl(1.5,20,    10,i,0);
                 //yCyl(0.8,20,    -30,i,0);
             }//for          
             scale([1.5,1,1]){                
@@ -132,7 +135,7 @@ module fuselage_front(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=fa
     }//transform
 }//module                
 
-module fuselage_back(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=false, isAdhesion=false){
+module fuselage_back(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=false, isAdhesion=false, isRPi=false, isJetson=true){
     translate([(px), (py), pz])
     rotate([rx,ry,rz])
     mirror([mx,my,mz]){  
@@ -147,6 +150,7 @@ module fuselage_back(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=fal
                    //for fuselage connectors
             for (i=[-30:20:30]){
                 yCyl(1.5,20,    80,i,0);
+                yCyl(1.5,20,    100,i,0);
                 //yCyl(0.8,20,    -30,i,0);
             }//for 
             translate([10,0,0])
@@ -173,9 +177,12 @@ module fuselage_back(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=fal
          //battery holder
         battery_holder(35,18,0, 0,0,90);
         battery_holder(35,-22,0, 0,0,90);
-        //jetson_nano(45,0,20, 0,0,90);  
-        jetson_nano_sup(45,0,5, 0,0,90);  
-        raspberrypi_sup(55,0,5, 0,0,90);
+        if (isJetson){
+            jetson_nano_sup(45,0,5, 0,0,90);  
+        }//isJetson
+        if(isRPi){
+            raspberrypi_sup(55,0,5, 0,0,90);
+        }//isRPi
         difference(){
             //yCube(116,4,4,   58,46,28);
             yCyl(4,90, 54,56,28,  0,90,0, $fn=3);
