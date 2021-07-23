@@ -6,6 +6,7 @@ include <../../lib/lib2.scad>
 
 //wingMainNACA(isAdhesion=true);
 //wingMainNACA_V(isAdhesion=true, length =100);
+//wingMainNACA_V(isAdhesion=true, length = 160, chord=60);
 //wingChassis();
 //wingHolderSingle(isAdhesion=false);
 //wingHolderSingle(isAdhesion=true, length=120, rx=180);
@@ -69,7 +70,7 @@ module wingMainNACA_V(px=0,py=0,pz=0, rx=0,ry=0,rz=0, chord = 40, length=100, is
                         scale([chord,chord,1])
                         polygon(points);
                 }//linear_extrude
-                yCube(50,20,10, 25,-10,length/4+5.01);
+                yCube(150,20,10, 25,-10,length/4+5.01);
                 }//difference
                 difference(){
                     translate([0,0,length/2])
@@ -79,12 +80,12 @@ module wingMainNACA_V(px=0,py=0,pz=0, rx=0,ry=0,rz=0, chord = 40, length=100, is
                         scale([chord,chord,1])
                             polygon(points);
                 }//linear_extrude
-                yCube(50,20,10, 25,-10,length/4-5.01);
+                yCube(150,20,10, 25,-10,length/4-5.01);
                 }//difference
             }//union
             
-            yCube(50,20,10, 25,10,-length/4-4.5);
-            yCube(50,20,10, 25,10,length*0.75+4.5);
+            yCube(150,20,10, 25,10,-length/4-4.5);
+            yCube(150,20,10, 25,10,length*0.75+4.5);
             
             if(isHoles){
                 yCyl(1.8,30,    6,0,length/4,  90,0,0);
@@ -97,10 +98,10 @@ module wingMainNACA_V(px=0,py=0,pz=0, rx=0,ry=0,rz=0, chord = 40, length=100, is
         
     }//transform
     if (isAdhesion){
-            yTube(10,8,0.4,   10,7,-length/4+0.7,  0,0,0,  sx=2);              
-            yTube(10,8,0.4,   30,7,-length/4+0.7,  0,0,0,  sx=2);  
-            yCube(10,3,0.4,     -2.5,7,-length/4+0.7,  0,0,0 );
-            yCube(10,3,0.4,     42.5,7,-length/4+0.7,  0,0,0 );
+            yTube(10,8,0.4,   chord/8,10,-length/4+0.7,  0,0,0,  sx=2);              
+            yTube(10,8,0.4,   chord,10,-length/4+0.7,  0,0,0,  sx=2);  
+            yCube(10*2,3,0.4,     -2.5,10,-length/4+0.7,  0,0,0 );
+            yCube(10*2,3,0.4,     chord+9,10,-length/4+0.7,  0,0,0 );
         }//isAdhesion
 }//module            
 
