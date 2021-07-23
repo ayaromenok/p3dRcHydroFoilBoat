@@ -12,10 +12,10 @@ floatSupportWingFront(pz=-15.5);
 floatSupportWingFront(pz=-15.5,rz=180);
 floatSupport(20,-180,54,  0,0,-90);
 floatSupport(20,180,54,  0,0,-90);
-wingMainNACA_V(20,181,-132, 90,10,180);
+wingMainNACA_V(20,167,-128, 90,10,180, length=160,chord=60);
 wingHolderSingle(0,206,-140,  180,180,180, length=120);
 
-wingMainNACA_V(20,-231,-132, 90,10,180);
+wingMainNACA_V(20,-245,-128, 90,10,180, length=160,chord=60);
 wingHolderSingle(0,-206,-140,  180,180,180, length=120);
 
 //back wing
