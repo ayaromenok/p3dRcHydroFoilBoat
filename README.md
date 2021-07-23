@@ -4,6 +4,7 @@
 
  - [Introduction](#intro)
  - [Work in Progress status](#wip)
+ - [Version v0.2.0](#v0_2_0)
  - [Version v0.1.1](#v0_1_1)
 
 ## Introduction
@@ -14,6 +15,20 @@ Impelented in OpenSCAD. To rebuild STL's required [p3d Lib2 0.2.2.20210615](http
 ## Work In Progress status<a name="wip"></a>
 
 ![HydroFoil boat](https://github.com/ayaromenok/p3dRcHydroFoilBoat/blob/master/png/_assembly.png?raw=true)
+
+## v0.2.0 <a name="#v0_2_0"></a>
+
+- Version from 2021.07.23
+
+### Issues    
+  - support float/hydrofoil connetors need to be higher(affected by water)
+  - line of support floats and engine should be in one line (spray affected props)
+  - front connectors should be stronger
+  - front floats should be installed in 10-15 degree
+  - front wing can be bigger
+  
+![HydroFoil boat](https://github.com/ayaromenok/p3dRcHydroFoilBoat/blob/master/png/real_v0.2.0.jpg?raw=true)
+![HydroFoil boat](https://github.com/ayaromenok/p3dRcHydroFoilBoat/blob/master/png/scad_v0.2.0.png?raw=true)
 
 ## v0.1.1 <a name="#v0_1_1"></a>
 

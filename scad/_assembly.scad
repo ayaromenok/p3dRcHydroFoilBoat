@@ -19,7 +19,6 @@ wingMainNACA_V(20,-231,-132, 90,10,180);
 wingHolderSingle(0,-206,-140,  180,180,180, length=120);
 
 //back wing
-;
 floatSupportWing(-380,0,-10);
 floatSupportWing(-380,0,-10, 0,0,180);
 floatSupportConnector_L(-390,200,-15, -90,0,-90);
@@ -33,6 +32,7 @@ wingHolderSingle(-380,-202,-135,isAdhesion=false);
 fuselage_engine_support(-200,0,-15);
 fuselage_front(-200,0,-10);
 fuselage_back(-310,0,-10);
+fuselage_front_top(-200,0,50, 180,0,0);
 
 //fuselage_front(-200,0,0);
 //fuselage_back(-300,0,0);
