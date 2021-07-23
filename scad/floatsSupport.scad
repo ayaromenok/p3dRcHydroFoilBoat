@@ -5,7 +5,8 @@ include <../../lib/lib2.scad>
 //floatSupport(pz=-56,ry=180);
 //floatHiSpeed_front_v2sup(ry=90);
 //floatSupportWing();
-//floatSupportWingFront();
+floatSupportWingFront(rz=45);
+//floatSupportWingFront(rz=45,mx=1);
 //floatSupport();
 //floatSupportConnector_L(rx=90);
 
@@ -28,30 +29,34 @@ module floatSupportConnector_L(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
         }
     }//transform
 }//module
-module floatSupportWingFront(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
+module floatSupportWingFront(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0){
     translate([(px),(py),pz])
     rotate([rx,ry,rz])  
+    mirror([mx,my,mz])
     {
         difference(){
             union(){
                 floatSupportWing();
-                yCube(80,40,10, 0,20,0);
+                yCube(83,40,10, 0,20,0);
+                yMinkCubeSphere(36,16,22,  4,  20,32,12);
             }//union        
+            
             //main float
-            yCyl(5,10,  37,37,5, 0,0,0);
+            yCyl(5,30,  37,37,15, 0,0,0);
             yCyl(1.5,30,  37,37,0, 0,0,0);
-            yCyl(5,10,  3,37,5, 0,0,0);
+            yCyl(5,30,  3,37,15, 0,0,0);
             yCyl(1.5,30,  3,37,0, 0,0,0);
-            yCyl(5,10,  -3,37,5, 0,0,0);
+            yCyl(5,30,  -3,37,15, 0,0,0);
             yCyl(1.5,30,  -3,37,5, 0,0,0);          
-            yCyl(5,10,  -37,37,5, 0,0,0);
+            yCyl(5,10,  -37,37,05, 0,0,0);
             yCyl(1.5,30,  -37,37,0, 0,0,0);
             //to fuselage/etc
             for (i=[-30:20:30]){
                 yCyl(0.8,10,    i,10,2);
                 yCyl(0.8,10,    i,30,2);
             }//for   
-        }//difference        
+        }//difference    
+    
     }//transform
 }//module
         
@@ -62,8 +67,9 @@ module floatSupportWing(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
         difference(){
             union(){
                 yCube(40,40,10, 0,20,0);
-                yMinkCubeSphere(15,150,10,  4,  0,100,0, sx=2);
-                yMinkCubeSphere(36,36,10,  4,  0,180,0);
+                yMinkCubeSphere(10.1,170,12,  5,  10,110,20, 0,0,8, sx=2.5);
+                yMinkCubeSphere(36,36,10,  4,  0,200,0);
+                yMinkCubeSphere(36,12,20,  4,  0,190,10);
             }//union
             //main float
             yCyl(5,10,  33.5/2,37,5, 0,0,0);
@@ -71,10 +77,14 @@ module floatSupportWing(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
             yCyl(5,10,  -33.5/2,37,5, 0,0,0);
             yCyl(1.5,30,  -33.5/2,37,5, 0,0,0);          
             //support float
-            yCyl(1.8,20,    10,170,0,    0,0);     
-            yCyl(1.8,20,    -10,170,0,    0,0);  
-            yCyl(1.8,20,    10,190,0,    0,0);     
-            yCyl(1.8,20,    -10,190,0,    0,0);  
+            yCyl(1.8,20,    10,210,0,    0,0);     
+            yCyl(1.8,20,    -10,210,0,    0,0);  
+            yCyl(3.8,30,    10,210,15,    0,0);     
+            yCyl(3.8,30,    -10,210,15,    0,0);  
+            yCyl(1.8,20,    10,190,5,    0,0);     
+            yCyl(1.8,20,    -10,190,5,    0,0);  
+            yCyl(3.8,30,    10,190,15,    0,0);     
+            yCyl(3.8,30,    -10,190,15,    0,0);  
         }//difference                  
     }//transform
 }//module
