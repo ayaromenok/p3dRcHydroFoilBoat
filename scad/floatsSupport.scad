@@ -5,7 +5,7 @@ include <../../lib/lib2.scad>
 //floatSupport(pz=-56,ry=180);
 //floatHiSpeed_front_v2sup(ry=90);
 //floatSupportWing();
-floatSupportWingFront(rz=45);
+//floatSupportWingFront(rz=45);
 //floatSupportWingFront(rz=45,mx=1);
 //floatSupport();
 //floatSupportConnector_L(rx=90);
@@ -60,9 +60,10 @@ module floatSupportWingFront(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0){
     }//transform
 }//module
         
-module floatSupportWing(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
+module floatSupportWing(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0){
     translate([(px),(py),pz])
-    rotate([rx,ry,rz])  
+    rotate([rx,ry,rz])
+    mirror([mx,my,mz])  
     {
         difference(){
             union(){

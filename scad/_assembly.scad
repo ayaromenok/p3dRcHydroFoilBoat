@@ -9,18 +9,18 @@ floatHiSpeed_v2_assmebly(0,0,39.5, 0,0,-90);
 
 //front wing
 floatSupportWingFront(pz=-15.5);
-floatSupportWingFront(pz=-15.5,rz=180);
-floatSupport(20,-180,54,  0,0,-90);
-floatSupport(20,180,54,  0,0,-90);
-wingMainNACA_V(20,167,-128, 90,10,180, length=160,chord=60);
-wingHolderSingle(0,206,-140,  180,180,180, length=120);
+floatSupportWingFront(pz=-15.5,rz=180,mx=1);
+floatSupport(20,-200,54,  0,0,-90);
+floatSupport(20,200,54,  0,0,-90);
+wingMainNACA_V(20,187,-128, 90,10,180, length=160,chord=60);
+wingHolderSingle(0,226,-140,  180,180,180, length=120);
 
-wingMainNACA_V(20,-245,-128, 90,10,180, length=160,chord=60);
-wingHolderSingle(0,-206,-140,  180,180,180, length=120);
+wingMainNACA_V(20,-265,-128, 90,10,180, length=160,chord=60);
+wingHolderSingle(0,-226,-140,  180,180,180, length=120);
 
 //back wing
 floatSupportWing(-380,0,-10);
-floatSupportWing(-380,0,-10, 0,0,180);
+floatSupportWing(-380,0,-10, 0,0,180, mx=1);
 floatSupportConnector_L(-390,200,-15, -90,0,-90);
 floatSupportConnector_L(-370,-200,-15, -90,0,90);
 wingMainNACA_V(-360,177,-132,rx=90, rz=180, isAdhesion=false, length =100);
