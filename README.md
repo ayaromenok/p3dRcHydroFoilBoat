@@ -26,10 +26,13 @@ Impelented in OpenSCAD. To rebuild STL's required [p3d Lib2 0.2.2.20210615](http
   - front connectors should be stronger
   - front floats should be installed in 10-15 degree
   - front wing can be bigger
+  - camera connector should be mounted a top of the engine wings and be strong
+  - nose gunwale(falschbort) should be much higher for strong wind situation
   
 ![HydroFoil boat](https://github.com/ayaromenok/p3dRcHydroFoilBoat/blob/master/png/real_v0.2.0.jpg?raw=true)
 ![HydroFoil boat](https://github.com/ayaromenok/p3dRcHydroFoilBoat/blob/master/png/scad_v0.2.0.png?raw=true)
-
+[video from ground](https://www.youtube.com/watch?v=aogEewLZsBY)
+[onboard video](https://www.youtube.com/watch?v=OHG-W-Ka8qo)
 ## v0.1.1 <a name="#v0_1_1"></a>
 
 - Version from 2021.07.18
