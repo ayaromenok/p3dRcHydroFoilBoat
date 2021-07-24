@@ -5,6 +5,7 @@ include <../../lib/lib2.scad>
 //floatSupport(pz=-56,ry=180);
 //floatHiSpeed_front_v2sup(ry=90);
 //floatSupportWing();
+//floatSupportWingFront_v3(rz=45);
 //floatSupportWingFront(rz=45);
 //floatSupportWingFront(rz=45,mx=1);
 //floatSupport();
@@ -27,6 +28,44 @@ module floatSupportConnector_L(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
                 yCyl(0.8,20,    i+8,0,22, 0,90,90);
             }//for   
         }
+    }//transform
+}//module
+module floatSupportWingFront_v3(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0){
+    translate([(px),(py),pz])
+    rotate([rx,ry,rz])
+    mirror([mx,my,mz])  
+    {
+        difference(){
+            union(){
+                yCube(80,40,12, 0,20,11);
+                yMinkCubeSphere(10.1,180,12,  5,  15,106,20, 0,0,8, sx=2);
+                yMinkCubeSphere(10.1,180,12,  5,  -15,106,20, 0,0,-8, sx=2);
+                //yMinkCubeSphere(76,12,20,  4,  0,30,10);
+                yMinkCubeSphere(36,36,10,  4,  0,200,0);
+                yMinkCubeSphere(36,14,20,  4,  0,190,10);
+            }//union
+            
+            //support float
+            yCyl(1.8,20,    10,210,0,    0,0);     
+            yCyl(1.8,20,    -10,210,0,    0,0);  
+            yCyl(3.8,30,    10,210,15,    0,0);     
+            yCyl(3.8,30,    -10,210,15,    0,0);  
+            yCyl(1.8,20,    10,190,5,    0,0);     
+            yCyl(1.8,20,    -10,190,5,    0,0);  
+            yCyl(3.8,30,    10,190,15,    0,0);     
+            yCyl(3.8,30,    -10,190,15,    0,0);  
+            //to engine support
+            for (i=[-30:20:30]){
+                yCyl(1.5,40,    i,10,10);
+                yCyl(1.5,40,    i,30,10);
+                yCyl(3.5,20,    i,10,20);
+                yCyl(3.5,20,    i,30,20);                
+            }//for          
+            yCyl(11,100,    0,20,50, sx=2.1);
+            yCube(48,40,40, 0,0,10); 
+        }//difference 
+        
+        
     }//transform
 }//module
 module floatSupportWingFront(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0){
