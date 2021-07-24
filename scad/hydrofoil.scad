@@ -10,12 +10,36 @@ include <../../lib/lib2.scad>
 //wingChassis();
 //wingHolderSingle(isAdhesion=false);
 //wingHolderSingle(isAdhesion=true, length=120, rx=180);
-
+wingHolderBack();
 function naca_half_thickness(x,t) = 5*t*(0.2969*sqrt(x) - 0.1260*x - 0.3516*pow(x,2) + 0.2843*pow(x,3) - 0.1015*pow(x,4));
 function naca_top_coordinates(t,n) = [ for (x=[0:1/(n-1):1]) [x, naca_half_thickness(x,t)]];
 function naca_bottom_coordinates(t,n) = [ for (x=[1:-1/(n-1):0]) [x, - naca_half_thickness(x,t)]];
 function naca_coordinates(t,n) = concat(naca_top_coordinates(t,n), naca_bottom_coordinates(t,n));
 
+module wingHolderBack(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
+    translate([(px), (py), pz])
+    rotate([rx,ry,rz]){
+        difference(){
+            yMinkCubeSphere(51,26,6,   2, -6.5);
+            for (i=[-5:20:25]){     
+                yCyl(1.8,20,    i,10,0,     0);
+                yCyl(1.8,20,    i,-10,0,    0);     
+            }//for
+        }//difference
+        difference(){
+            yMinkCubeSphere(28,6,56,   2,   -39,6,25);
+            for (i=[-49:20:-10]){     
+                yCyl(0.8,20,    i,10,8,    90);
+                yCyl(0.8,20,    i,10,18,    90);
+                yCyl(0.8,20,    i,10,28,    90);
+                yCyl(0.8,20,    i,10,38,    90);    
+                yCyl(0.8,20,    i,10,48,    90);     
+            }//for        
+        }//difference
+            
+    }//transform
+}//module            
+        
 module wingChassis(px=0,py=0,pz=0, rx=0,ry=0,rz=0, chord = 30, length=200, isAdhesion=false){
     translate([(px), (py), pz])
     rotate([rx,ry,rz])
@@ -91,10 +115,11 @@ module wingMainNACA_V(px=0,py=0,pz=0, rx=0,ry=0,rz=0, chord = 40, length=100, is
                 yCyl(1.8,30,    6,0,length/4,  90,0,0);
                 yCyl(1.8,30,    26,0,length/4,  90,0,0);
             
-                yCone(4,7,    6,-7.1,length/4,  -90,0,0);
-                yCone(4,7,    26,-7,length/4,  -90,0,0);
+                yCone(4,7,    6,-10.7,length/4,  -90,0,0);
+                yCone(4,7,    26,-11,length/4,  -90,0,0);
             }//isHoles
         }//difference
+        
         
     }//transform
     if (isAdhesion){
