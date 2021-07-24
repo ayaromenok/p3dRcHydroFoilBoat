@@ -14,7 +14,8 @@ engine2212_wing(0,-5,110 );
 engine2212_wing(0,5,110, my=1);
 engine2212_mount(0,-5,110,isMetal=true);
 engine2212_mount(0,5,110,isMetal=true, my=1);
-
+floatSupportWingFront_v3(0,0,-15);
+floatSupportWingFront_v3(0,0,-15, rz=180);
 //front hydro-wing
 //floatSupportWingFront(pz=-15.5);
 //floatSupportWingFront(pz=-15.5,rz=180,mx=1);
