@@ -35,7 +35,8 @@ wingHolderSingle(-425,0,-143,isAdhesion=false);
 //yCube(600,10,10,    -200,0,-154);
 
 
-fuselage_front(-200,0,5);
-fuselage_back(-310,0,5);
+fuselage_front_back_support(-200,0,2.5);
+fuselage_front(-205,0,5);
+fuselage_back(-315,0,5);
 //fuselage_front_top(-200,0,50, 180,0,0);
 

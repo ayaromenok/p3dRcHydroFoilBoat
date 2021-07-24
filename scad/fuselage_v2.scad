@@ -9,8 +9,35 @@ include <../../lib/lib2.scad>
 //fuselage_front_top(0,0,70, 180,0,0);
 //fuselage_front_top(0,0,70, 0,0,0);
 //fuselage_back(-110,0,10,isRPi=true);
-//jetson_nano_sup(38,0,20, 0,0,90);  
-
+//jetson_nano_sup(38,0,20, 0,0,90);
+//fuselage_front_back_support();
+module fuselage_front_back_support(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=false, isAdhesion=false){
+    translate([(px), (py), pz])
+    rotate([rx,ry,rz]){
+        difference(){
+            yMinkCubeCyl(76,66,5,   2, 0,0,0);
+            for (i=[-30:20:30]){
+                yCyl(1.5,10,    i,10,0);                
+                yCyl(1.5,10,    i,-10,0);                
+            }//for
+            
+            for (i=[-35:20:30]){
+                yCyl(0.8,10,    i,30,0);
+                yCyl(0.8,10,    i,10,0);
+                yCyl(0.8,10,    i,-10,0);
+                yCyl(0.8,10,    i,-30,0);
+            }//for
+            
+            for (i=[-25:20:35]){
+                yCube(12,12,10,    i,20,0);
+                yCube(12,12,10,    i,0,0);
+                yCube(12,12,10,    i,-20,0);
+            }//for
+          yCube(10,70,10, 38,0,0);  
+        }
+        
+    }//transform
+}//module                        
 module fuselage_front_top(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=false, isAdhesion=false){
     translate([(px), (py), pz])
     rotate([rx,ry,rz])
