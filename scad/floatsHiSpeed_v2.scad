@@ -106,6 +106,45 @@ module floatHiSpeed_center_top_v2_2(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     }//transform
 }//module
 
+module floatHiSpeed_front_top_v2_1_1(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
+    translate([(px),(py),pz])
+    rotate([rx,ry,rz])    
+    {
+        difference(){
+            union(){
+                yCyl(0,33, 98,0,0,  0,90,0, $fn=100, sy=5,rb=40, rt=48);
+                yCyl(0,10, 84,0,0,  6,90,0, $fn=100, sy=4.8,rb=40, rt=54);
+            }//union
+            yCyl(0,32, 100,0,0,  0,90,0, $fn=100, sy=5, rb=39,rt=47.3);
+            yCube(130,370,150,    108,-143,0);
+            yCube(30,250,150,    100,44,0, 0,0,-17);
+            //connectors
+            yCyl(3.5,26,  98,196,0, 0,90,0);
+            yCyl(1.4,26,  80,197,0, 0,90,0);
+            yCyl(1.4,26,  80,102,31, 0,90,0);
+            yCyl(1.4,26,  80,102,-31, 0,90,0);
+            yCyl(1.4,26,  80,47,35, 0,90,0);
+            yCyl(1.4,26,  80,47,-35, 0,90,0);          
+            //water pass
+            yCube(5,4,86,    86.5,53,0);
+            //top light
+            yCyl(2,100, 111,155,0, 0,0,0);
+            yCyl(3,100, 110,145,0, 0,0,0);
+            yCyl(2,100, 108,135,0, 0,0,0);
+        }//difference
+        
+        yTube(3.5,1.4,3,  85,197,0, 0,90,0);
+        yTube(3.5,1.4,3,  85,102,31, 0,90,0);
+        yTube(3.5,1.4,3,  85,102,-31, 0,90,0);
+        yTube(3.5,1.4,3,  85,47,35, 0,90,0);
+        yTube(3.5,1.4,3,  85,47,-35, 0,90,0);
+        yCube(5,2,79,    85,43,0);
+        
+        
+        //yCube(5,80,5,    105,105,39, 0,45,-17);
+    }//transform
+}//module
+
 module floatHiSpeed_front_top_v2_1(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     translate([(px),(py),pz])
     rotate([rx,ry,rz])    
@@ -143,7 +182,6 @@ module floatHiSpeed_front_top_v2_1(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
         */
     }//transform
 }//module
-
 module floatHiSpeed_front_top_v2_1_2(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     translate([(px),(py),pz])
     rotate([rx,ry,rz])    
