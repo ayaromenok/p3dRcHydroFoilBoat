@@ -10,6 +10,27 @@ include <../../lib/lib2.scad>
 //floatHiSpeed_center_top_v2_3(ry=-90,rz=0);
 //floatHiSpeed_v2_assmebly();
 
+//floatHiSpeed_holder();
+
+module floatHiSpeed_holder(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
+    translate([(px),(py),pz])
+    rotate([rx,ry,rz]){
+            difference(){                                        
+                scale([1.2,1,1])            
+                rotate([90,0,0])
+                linear_extrude(6)
+                    polygon( points=[[0,32],[22,0],[0,-32], [4,-42],[32,0], [4,42]]);
+                yCyl(2.7,20,    7.5,0,32,  90,0,0);
+                yCyl(2.7,20,    7.5,0,-32,  90,0,0);
+            }//difference
+        yCube(70,6,10,  40,-3,40, 0,-30,0);
+        yCube(70,6,10,  40,-3,-40,  0,30,0);
+        difference(){    
+            yCube(10,6,140,  70,-3,0);    
+            yCyl(2.7,20,    70,0,0,  90,0,0);    
+        }//difference
+    }//transform
+}//module                    
 module floatHiSpeed_v2_assmebly(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     translate([(px),(py),pz])
     rotate([rx,ry,rz])
