@@ -10,7 +10,7 @@ include <../../lib/lib2.scad>
 //floatHiSpeed_center_top_v2_3(ry=-90,rz=0);
 //floatHiSpeed_v2_assmebly();
 
-//floatHiSpeed_holder();
+//floatHiSpeed_holder(rx=90);
 
 module floatHiSpeed_holder(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     translate([(px),(py),pz])
@@ -23,11 +23,11 @@ module floatHiSpeed_holder(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
                 yCyl(2.7,20,    7.5,0,32,  90,0,0);
                 yCyl(2.7,20,    7.5,0,-32,  90,0,0);
             }//difference
-        yCube(70,6,10,  40,-3,40, 0,-30,0);
-        yCube(70,6,10,  40,-3,-40,  0,30,0);
+        yCube(100,6,10,  58,-3,50, 0,-30,0);
+        yCube(100,6,10,  58,-3,-50,  0,30,0);
         difference(){    
-            yCube(10,6,140,  70,-3,0);    
-            yCyl(2.7,20,    70,0,0,  90,0,0);    
+            yCube(10,6,180,  100,-3,0);    
+            yCyl(2.7,20,    100,0,0,  90,0,0);    
         }//difference
     }//transform
 }//module                    
