@@ -5,7 +5,8 @@ include <../../lib/lib2.scad>
 //floatSupport(pz=-56,ry=180);
 //floatHiSpeed_front_v2sup(ry=90);
 //floatSupportWing();
-//floatSupportWingFront_v3(rz=45);
+//floatSupportWingFront_v3(rz=-45, ry=180);
+//floatSupportWingFront_v3();
 //floatSupportWingFront(rz=45);
 //floatSupportWingFront(rz=45,mx=1);
 //floatSupport();
@@ -30,6 +31,7 @@ module floatSupportConnector_L(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
         }
     }//transform
 }//module
+
 module floatSupportWingFront_v3(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0){
     translate([(px),(py),pz])
     rotate([rx,ry,rz])
@@ -37,32 +39,51 @@ module floatSupportWingFront_v3(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0){
     {
         difference(){
             union(){
-                yCube(80,40,12, 0,20,11);
-                yMinkCubeSphere(10.1,180,12,  5,  15,106,20, 0,0,8, sx=2);
-                yMinkCubeSphere(10.1,180,12,  5,  -15,106,20, 0,0,-8, sx=2);
-                //yMinkCubeSphere(76,12,20,  4,  0,30,10);
-                yMinkCubeSphere(36,36,10,  4,  0,200,0);
-                yMinkCubeSphere(36,14,20,  4,  0,190,10);
+                yCube(80,40,16, 0,20,8);
+                yMinkCubeSphere(13.1,220,12,  5,  20,106,10, 0,0,0, sx=1.5);
+                yMinkCubeSphere(13.1,220,12,  5,  -20,106,10, 0,0,0, sx=1.5);
+                yMinkCubeSphere(56,36,20,  4,  0,200,6);
+                yCube(80,40,8, 0,200,0);
             }//union
             
             //support float
-            yCyl(1.8,20,    10,210,0,    0,0);     
-            yCyl(1.8,20,    -10,210,0,    0,0);  
-            yCyl(3.8,30,    10,210,15,    0,0);     
-            yCyl(3.8,30,    -10,210,15,    0,0);  
-            yCyl(1.8,20,    10,190,5,    0,0);     
-            yCyl(1.8,20,    -10,190,5,    0,0);  
-            yCyl(3.8,30,    10,190,15,    0,0);     
-            yCyl(3.8,30,    -10,190,15,    0,0);  
-            //to engine support
             for (i=[-30:20:30]){
-                yCyl(1.5,40,    i,10,10);
-                yCyl(1.5,40,    i,30,10);
-                yCyl(3.5,20,    i,10,20);
-                yCyl(3.5,20,    i,30,20);                
-            }//for          
-            yCyl(11,100,    0,20,50, sx=2.1);
-            yCube(48,40,40, 0,0,10); 
+                yCyl(1.5,30,    i,190,5,    0,0);     
+                yCyl(1.5,30,    i,210,-5,    0,0);  
+                yCyl(3.5,30,    i,190,15,    0,0); 
+                yCyl(3.5,30,    i,210,15,    0,0);       
+                yCone(3.5,5,    i,190,-2.4,    180,0);     
+                yCone(3.5,5,    i,210,-2.4,    180,0);           
+                //to fuselage/etc    
+                yCyl(0.8,20,    i,10,11);
+                yCyl(0.8,20,    i,30,11);
+            }//for
+            
+            //main float
+            yCyl(1.5,30,  37,37,0, 0,0,0);
+            yCyl(5,30,  37,37,23, 0,0,0);
+            yCone(5,5,  37,37,6, 0,180,0);            
+            
+            yCyl(1.5,30,  3,37,0, 0,0,0);
+            yCyl(5,30,  3,37,23, 0,0,0);
+            yCone(5,5,  3,37,6, 0,180,0);
+            
+            yCyl(1.5,30,  -3,37,5, 0,0,0);
+            yCyl(5,30,  -3,37,23, 0,0,0);
+            yCone(5,5,  -3,37,6, 0,180,0);
+            
+            yCyl(1.5,30,  -37,37,0, 0,0,0);          
+            yCyl(5,30,  -37,37,23, 0,0,0);
+            yCone(5,5,  -37,37,6, 0,180,0);
+            
+            
+            //cuts: central section
+            //yCyl(11,100,    0,20,50, sx=2.1);
+            //yCube(48,40,40, 0,0,10);             
+            yCube(100,20,30,    0,-10,15);
+            //cuts: around support float
+            yCube(100,20,50,    0,210,20, 45,0,0);
+            yCube(50,50,20,    0,200,-15, 0,0,0);
         }//difference 
         
         
