@@ -8,13 +8,43 @@ include <../../lib/lib2.scad>
 //wingMainNACA_V(isAdhesion=true, length =100);
 //wingMainNACA_V(isAdhesion=true, length = 160, chord=60);
 //wingChassis();
-//wingHolderSingle(isAdhesion=false);
+//wingHolderSingle(isAdhesion=false, py=100,rx=90);
 //wingHolderSingle(isAdhesion=true, length=120, rx=180);
 //wingHolderBack();
+//wingMainNACA_multy_V(isAdhesion=true);
 function naca_half_thickness(x,t) = 5*t*(0.2969*sqrt(x) - 0.1260*x - 0.3516*pow(x,2) + 0.2843*pow(x,3) - 0.1015*pow(x,4));
 function naca_top_coordinates(t,n) = [ for (x=[0:1/(n-1):1]) [x, naca_half_thickness(x,t)]];
 function naca_bottom_coordinates(t,n) = [ for (x=[1:-1/(n-1):0]) [x, - naca_half_thickness(x,t)]];
 function naca_coordinates(t,n) = concat(naca_top_coordinates(t,n), naca_bottom_coordinates(t,n));
+
+module wingMainNACA_multy_V(px=0,py=0,pz=0, rx=0,ry=0,rz=0, chord = 40, length=100, isAdhesion=false, isHoles=true){
+    translate([(px), (py), pz])
+    rotate([rx,ry,rz]){
+        difference(){
+            translate([0,20,25])
+            rotate([90,0,0])
+                linear_extrude(height=180, center=true) {                    
+                    points = naca_coordinates(t=0.12,n=300);
+                        scale([chord,chord,1])
+                        polygon(points);
+                }//linear_extrude
+            for (i=[65:20:110]){     
+                yCyl(1.8,20,    5, i, 30,     0);
+                yCyl(1.8,20,    25,i,30,    0);     
+            }//for
+        }//difference
+        wingMainNACA_V(0,0,0, 0,0,-9);
+        wingMainNACA_V(0,-30,0, 0,0,-7);
+        wingMainNACA_V(0,-60,0, 0,0,-5);
+        if(isAdhesion){
+            yCube(chord, 0.81,length/2-0.7, chord/2,30,0.1);
+            yCube(chord, 0.81,length/2-0.7, chord/2,70,0.1);
+            yCube(chord, 0.81,length/2-0.7, chord/2,110,0.1);
+        }//isAdhesion
+        //yCube(10,200,10,    0,40,-29.6);
+    }//transform    
+}//module     
+
 
 module wingHolderBack(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     translate([(px), (py), pz])
@@ -187,7 +217,12 @@ module wingHolderSingle(px=0,py=0,pz=0, rx=0,ry=0,rz=0, length=120, chord=40, is
             rotate([0,-angle,0]){
                 yCyl(0.9,20,    10,0,0);
                 yCyl(0.9,20,   -10,0,0);
-            }//translate                     
+            }//translate
+            /*for (i=[-length:20:0]){ 
+                yCyl(1.8,20,    10,0,length-5+i,   90);
+                yCyl(1.8,20,    -10,0,length-5+i,   90);
+            } */        
+           
             yCyl(1.8,20,    10,0,length-5,   90);
             yCyl(1.8,20,    -10,0,length-5,   90);
             yCyl(1.8,20,    10,0,length-25,   90);            
@@ -196,7 +231,7 @@ module wingHolderSingle(px=0,py=0,pz=0, rx=0,ry=0,rz=0, length=120, chord=40, is
             yCyl(1.8,20,    -10,0,length-45,   90);
             yCyl(1.8,20,    10,0,length-65,   90);
             yCyl(1.8,20,    -10,0,length-65,  90);
-            
+           
         }//difference        
         if(isAdhesion){
             yCyl(5,0.7, 24,0,length-0.35);
