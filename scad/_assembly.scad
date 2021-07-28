@@ -24,11 +24,13 @@ floatSupportWingFront_v3(0,0,-20, mx=1);
 floatSupportWingFront_v3(0,0,-20, rz=180, mx=0);
 floatSupport(20,-200,53,  7,00,-90);
 floatSupport(20,200,49,  7,0,-90);
-wingMainNACA_V(20,187,-133, 90,10,180, length=160,chord=60);
-wingHolderSingle(0,226,-145,  180,190,180, length=120);
+wingMainNACA_multy_V_v2(7,-230,-164, 0,-7,0);
+wingMainNACA_multy_V_v2(7,230,-164, 0,-7,0, 0,1,0);
+//wingMainNACA_V(20,187,-133, 90,10,180, length=160,chord=60);
+//wingHolderSingle(0,226,-145,  180,190,180, length=120);
 
-wingMainNACA_V(20,-265,-133, 90,10,180, length=160,chord=60);
-wingHolderSingle(0,-226,-145,  180,180,180, length=120);
+//wingMainNACA_V(20,-265,-133, 90,10,180, length=160,chord=60);
+//wingHolderSingle(0,-226,-145,  180,180,180, length=120);
 
 //back hydro-wing
 wingHolderBack(-385, rx=180);
