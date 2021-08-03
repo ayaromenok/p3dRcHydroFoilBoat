@@ -6,6 +6,8 @@ include <../../lib/lib2/lib2_servo.scad>
 
 //engine2212_wing();
 //engine2212_mount(isMetal=true);
+//engine2212_mount_ESC_air_intake();
+//engine2212_mount_ESC_air_intake(27,-220,0,  0,-90,0);
 //2print
 //engine2212_wing(rx=-90,isAdhesion=true);//left
 //engine2212_wing(rx=90,my=1,isAdhesion=true);//right
@@ -16,6 +18,32 @@ function naca_half_thickness(x,t) = 5*t*(0.2969*sqrt(x) - 0.1260*x - 0.3516*pow(
 function naca_top_coordinates(t,n) = [ for (x=[0:1/(n-1):1]) [x, naca_half_thickness(x,t)]];
 function naca_bottom_coordinates(t,n) = [ for (x=[1:-1/(n-1):0]) [x, - naca_half_thickness(x,t)]];
 function naca_coordinates(t,n) = concat(naca_top_coordinates(t,n), naca_bottom_coordinates(t,n));
+
+module engine2212_mount_ESC_air_intake(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=false, isAdhesion=false){
+    translate([(px), (py), pz])
+    rotate([rx,ry,rz])
+    mirror([mx,my,mz]){  
+        difference(){
+            yCyl(11.6,30, 0,218,27,  0,90,0);            
+            yCyl(4,20,  -10,220,27,   90,0,0);
+            yCyl(1.5,40,  -10,218,27,   90,0,0);
+            yCube(20,50,25,  10,220,27,   0,0,-20);
+        }//difference
+        
+        difference(){
+            difference(){
+                yCyl(14,30, 8,222,27,  -30,90,0);
+                yCyl(11.6,35, 11.4,222,27,  -45,90,0);
+            }//difference
+            difference(){
+                yCube(150,150,40, -34,268,27);
+                yCyl(62,50, -34,268,27,  0,0,0);
+            }//difference
+            yCyl(4,20,  -10,220,27,   90,0,0);
+        }//difference
+        
+    }//transform
+}//module
 
 module engine2212_mount(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=false, isAdhesion=false){
     translate([(px), (py), pz])
