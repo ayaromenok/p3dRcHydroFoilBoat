@@ -10,7 +10,32 @@ include <../../lib/lib2.scad>
 //floatSupportWingFront(rz=45);
 //floatSupportWingFront(rz=45,mx=1);
 //floatSupport();
+
+//floatHiSpeed_front_v2sup();
 //floatSupportConnector_L(rx=90);
+//floatSupport_top(ry=180,rx=-15);
+module floatSupport_top(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
+    translate([(px),(py),pz])
+    rotate([rx,ry,rz])  
+    {
+        difference(){
+            rotate([0,90,0])
+            scale([0.9,0.5,0.6]){                
+                    scale([1.2,1.2,1])
+                    floatHiSpeed_front_v2sup(px=-18);//132
+            }//scale
+            yCube(100,200,100,  0,50,-123.7);               
+            yCube(50,150,50,  0,50,-34, 15,0,0);               
+            
+            difference(){
+                yCyl(22,80, 00,-1,-40,  0,0,0, $fn=40, sy=5.4);
+                yCube(30,50,40, 26,105,-65, 17,10,30);
+                yCube(30,50,40, -26,105,-65, 17,-10,-30);
+            }//difference    
+        }//difference    
+        
+    }//transform
+}//module
 
 module floatSupportConnector_L(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
     translate([(px),(py),pz])
@@ -165,16 +190,15 @@ module floatSupport(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
                     floatHiSpeed_center_v2sup(22);                    
                 }//union
             }//scale
+            yCube(100,200,100,  0,50,-23.7);   
             for (i=[-70:20:0]){                     
                 yCyl(0.8,20,    20,i,-80,    0,90);     
                 yCyl(0.8,20,    -20,i,-80,    0,90);  
                 
                 yCyl(0.8,20,    10,i,-80,    0,0);     
                 yCyl(0.8,20,    -10,i,-80,    0,0);     
-            }//for        
-            
-        }//difference        
-
+            }//for                    
+        }//difference     
     }//transform
 }//module
 
