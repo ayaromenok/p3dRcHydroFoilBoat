@@ -5,7 +5,7 @@ include <../../lib/lib2/lib2_servo.scad>
 
 
 //engine2212_wing();
-//engine2212_mount(isMetal=true);
+//engine2212_mount(isMetal=false);
 //engine2212_mount_ESC_air_intake();
 //engine2212_mount_ESC_air_intake(27,-220,0,  0,-90,0);
 //2print
@@ -68,12 +68,11 @@ module engine2212_mount(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, isMetal=
                     yCyl(1.5,50,    0,0,-60,  90,0,0);
                     yCyl(3,30,    0,20,-20,  90,0,0);
                     //
-                    //yCube(6.5,6,10, 1.5,-6,-15, 0,0,15);
+                    yCube(6.5,6,10, 1.5,-6,-15, 0,0,15);
                     yCube(10,10,28, 0,-10,-40, 0,0,0);
                     //yCube(6,10,18, 8.5,-10,-70, 0,17,0);
                     //yCube(6,10,18, -8.5,-10,-70, 0,-17,0);
-                }//difference
-            
+                }//difference            
                 
         }//translate        
     }//transform
