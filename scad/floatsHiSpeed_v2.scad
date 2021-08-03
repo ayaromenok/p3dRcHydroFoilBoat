@@ -5,6 +5,8 @@ include <../../lib/lib2.scad>
 //floatHiSpeed_front_top_v2(ry=-90,rz=0);
 //floatHiSpeed_center_v2(pz=-60,ry=-90,rz=0);
 //floatHiSpeed_front_top_v2_1(ry=-90,rz=90);
+//floatHiSpeed_front_top_v2_1_1(ry=-90,rz=90);
+//floatHiSpeed_front_top_v2_1_1(-42,0,0, 90,90,0);
 //floatHiSpeed_front_top_v2_1_2(ry=-90,rz=0);
 //floatHiSpeed_center_top_v2_1(ry=-90,rz=0);
 //floatHiSpeed_center_top_v2_3(ry=-90,rz=0);
@@ -40,7 +42,7 @@ module floatHiSpeed_v2_assmebly(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
         //floatHiSpeed_front_top_v2();
         floatHiSpeed_center_v2();
         floatHiSpeed_center_v2(0,-200,0);
-        floatHiSpeed_front_top_v2_1(142,0,0,    0,180);
+        floatHiSpeed_front_top_v2_1_1(142,0,0,    0,180);
         //floatHiSpeed_front_top_v2_1_2(142,0,0,    0,180);
         floatHiSpeed_center_top_v2_1(142,0,0,    0,180);
         floatHiSpeed_center_top_v2_2(142,-200,0,    0,180);
@@ -134,11 +136,11 @@ module floatHiSpeed_front_top_v2_1_1(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
         difference(){
             union(){
                 yCyl(0,33, 98,0,0,  0,90,0, $fn=100, sy=5,rb=40, rt=48);
-                yCyl(0,10, 84,0,0,  6,90,0, $fn=100, sy=4.8,rb=40, rt=54);
+                yCyl(0,10, 84,0,0,  6,90,0, $fn=100, sy=5,rb=40, rt=50);                
             }//union
             yCyl(0,32, 100,0,0,  0,90,0, $fn=100, sy=5, rb=39,rt=47.3);
             yCube(130,370,150,    108,-143,0);
-            yCube(30,250,150,    100,44,0, 0,0,-17);
+            yCube(30,250,150,    119,144,0, 0,0,-6.2);
             //connectors
             yCyl(3.5,26,  98,196,0, 0,90,0);
             yCyl(1.4,26,  80,197,0, 0,90,0);
@@ -147,19 +149,23 @@ module floatHiSpeed_front_top_v2_1_1(px=0,py=0,pz=0, rx=0,ry=0,rz=0){
             yCyl(1.4,26,  80,47,35, 0,90,0);
             yCyl(1.4,26,  80,47,-35, 0,90,0);          
             //water pass
-            yCube(5,4,86,    86.5,53,0);
+            yCube(5,6,86,    86.5,53,0);
             //top light
             yCyl(2,100, 111,155,0, 0,0,0);
             yCyl(3,100, 110,145,0, 0,0,0);
             yCyl(2,100, 108,135,0, 0,0,0);
         }//difference
-        
+        //central support section
+        difference(){
+            yCube(30,152,2,    97,118,0);
+            yCube(30,250,150,    119,144,0, 0,0,-6.2);
+        }//difference
         yTube(3.5,1.4,3,  85,197,0, 0,90,0);
         yTube(3.5,1.4,3,  85,102,31, 0,90,0);
         yTube(3.5,1.4,3,  85,102,-31, 0,90,0);
         yTube(3.5,1.4,3,  85,47,35, 0,90,0);
         yTube(3.5,1.4,3,  85,47,-35, 0,90,0);
-        yCube(5,2,79,    85,43,0);
+        yCube(10,2,81,    87.8,43,0);
         
         
         //yCube(5,80,5,    105,105,39, 0,45,-17);
