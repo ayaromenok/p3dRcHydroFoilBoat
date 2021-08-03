@@ -17,6 +17,8 @@ engine2212_wing(-200,-5,110 );
 engine2212_wing(-200,5,110, my=1);
 engine2212_mount(-200,-5,110,isMetal=true);
 engine2212_mount(-200,5,110,isMetal=true, my=1);
+engine2212_mount_ESC_air_intake(-200,-5,110);
+engine2212_mount_ESC_air_intake(-200,5,110, my=1);
 
 
 //front hydro-wing
