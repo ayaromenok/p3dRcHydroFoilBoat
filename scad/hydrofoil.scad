@@ -6,8 +6,8 @@ include <../../lib/lib2.scad>
 
 
 //2print
-//wingMainNACA_half(length=70, chord=40,rx=180, isAdhesion=true);//right
-//wingMainNACA_half(length=70, rx=180, my=1,isAdhesion=true);//left
+//wingMainNACA_half(length=80, chord=60,rx=180, isAdhesion=true);//right
+//wingMainNACA_half(length=80, chord=60,rx=180, my=1,isAdhesion=true);//left
 //wingMainNACA(isAdhesion=true);
 //wingMainNACA_V(isAdhesion=true, length =100);
 //wingMainNACA_V(isAdhesion=true, length = 160, chord=60);
@@ -30,16 +30,16 @@ module wingMainNACA_multy_V_v2(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0){
     rotate([rx,ry,rz])
     mirror([mx,my,mz]){
         wingHolderSingle();
-        wingMainNACA_V(20,-25,8,    90,5,180);
-        wingMainNACA_half(0,-35,30,    -90,8,180, length=70);
-        wingMainNACA_half(0,-35,59,    -90,11,180, length=70);
+        wingMainNACA_V(20,-40,14,    90,5,180, length=160, chord=60);
+        //wingMainNACA_half(0,-35,30,    -90,8,180, length=80,chord = 60);
+        wingMainNACA_half(-1,-38,60,    -90,11,180, length=80,chord = 60);
         //wingMainNACA_half(0,-35,88.5,    -90,14,180, length=70);
-        wingMainNACA_half(0,35,45,    -90,8,180, length=70, mz=1);
+        wingMainNACA_half(-1,38,45,    -90,8,180, length=80,chord = 60, mz=1);
     }//transform    
 }//module     
 
 
-module wingMainNACA_half(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, chord = 40, length=100, isAdhesion=false, angle=10){
+module wingMainNACA_half(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, chord = 60, length=80, isAdhesion=false, angle=10){
     translate([(px), (py), pz])
     rotate([rx,ry,rz])
     mirror([mx,my,mz]){
@@ -47,21 +47,21 @@ module wingMainNACA_half(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, chord =
             rotate([angle,0,0])
             union(){
                 linear_extrude(height=length, center=true) {                    
-                    points = naca_coordinates(t=0.10,n=300);
+                    points = naca_coordinates(t=0.07,n=300);
                         scale([chord,chord,1])
                         translate([-0.5,0,0])
                         polygon(points);
                 }//linear_extrude
                 translate([0,0,-length/2+1])
                 linear_extrude(height=4, center=true) {                    
-                    points = naca_coordinates(t=0.24,n=300);
+                    points = naca_coordinates(t=0.16,n=300);
                         scale([chord,chord,1])
                         translate([-0.5,0,0])
                         polygon(points);
                 }//linear_extrude
                 translate([0,0,-length/2+8])
                 linear_extrude(height=10, center=true, scale=0.4) {                    
-                    points = naca_coordinates(t=0.24,n=300);
+                    points = naca_coordinates(t=0.16,n=300);
                         scale([chord,chord,1])
                         translate([-0.5,0,0])
                         polygon(points);
@@ -185,7 +185,7 @@ module wingChassis(px=0,py=0,pz=0, rx=0,ry=0,rz=0, chord = 30, length=200, isAdh
     }//transform    
 }//module     
 
-module wingMainNACA_V(px=0,py=0,pz=0, rx=0,ry=0,rz=0, chord = 40, length=100, isAdhesion=false, isHoles=true){
+module wingMainNACA_V(px=0,py=0,pz=0, rx=0,ry=0,rz=0, chord = 60, length=120, isAdhesion=false, isHoles=true){
     translate([(px), (py), pz])
     rotate([rx,ry,rz]){
         difference(){
@@ -193,7 +193,7 @@ module wingMainNACA_V(px=0,py=0,pz=0, rx=0,ry=0,rz=0, chord = 40, length=100, is
                 difference(){
                 rotate([15,0,0])
                 linear_extrude(height=length/2+4.5, center=true) {                    
-                    points = naca_coordinates(t=0.12,n=300);
+                    points = naca_coordinates(t=0.08,n=300);
                         scale([chord,chord,1])
                         polygon(points);
                 }//linear_extrude
@@ -203,7 +203,7 @@ module wingMainNACA_V(px=0,py=0,pz=0, rx=0,ry=0,rz=0, chord = 40, length=100, is
                     translate([0,0,length/2])
                     rotate([-15,0,0])
                     linear_extrude(height=length/2+4.5, center=true) {                    
-                        points = naca_coordinates(t=0.12,n=300);
+                        points = naca_coordinates(t=0.08,n=300);
                         scale([chord,chord,1])
                             polygon(points);
                 }//linear_extrude
