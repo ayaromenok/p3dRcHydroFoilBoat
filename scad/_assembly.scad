@@ -38,7 +38,7 @@ wingMainNACA_multy_V_v2(7,230,-164, 0,-7,0, 0,1,0);
 
 //back hydro-wing
 wingHolderBack(-385, rx=180);
-wingMainNACA_V(-400,-40,-129,rx=90,ry=10, rz=180, isAdhesion=false, length =160, chord=60);
+wingMainNACA_V(-405,-25,-132,rx=90,ry=8, rz=180, isAdhesion=false, length =100, chord=40);
 wingHolderSingle(-425,0,-143,isAdhesion=false);
 
 //fuselage
