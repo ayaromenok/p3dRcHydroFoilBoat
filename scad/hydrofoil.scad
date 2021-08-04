@@ -81,10 +81,10 @@ module wingMainNACA_half(px=0,py=0,pz=0, rx=0,ry=0,rz=0, mx=0,my=0,mz=0, chord =
         }//difference
         
         if (isAdhesion){
-            yTube(chord/4,8,0.4,   chord/4,-(length/2*sin(angle)),length/2-0.2,  0,0,0,  sx=2);              
-            yTube(chord/4,8,0.4,   -chord/4,-(length/2*sin(angle)),length/2-0.2,  0,0,0,  sx=2);  
-            yCube(chord/2,3,0.4,     chord/2,-(length/2*sin(angle)),length/2-0.2,  0,0,0 );
-            yCube(chord/2,3,0.4,     -chord/2,-(length/2*sin(angle)),length/2-0.2,  0,0,0 );
+            yTube(chord/4,chord/4.5,0.7,   chord/4,-(length/2*sin(angle)),length/2-0.2,  0,0,0,  sx=2);              
+            yTube(chord/4,chord/4.5,0.7,   -chord/4,-(length/2*sin(angle)),length/2-0.2,  0,0,0,  sx=2);  
+            yCube(chord/2,3,0.7,     chord/2,-(length/2*sin(angle)),length/2-0.2,  0,0,0 );
+            yCube(chord/2,3,0.7,     -chord/2,-(length/2*sin(angle)),length/2-0.2,  0,0,0 );
         }//isAdhesion
     }//transform    
 }//module 
