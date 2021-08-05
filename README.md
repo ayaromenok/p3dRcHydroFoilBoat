@@ -16,7 +16,7 @@ Impelented in OpenSCAD. To rebuild STL's required [p3d Lib2 0.2.2.20210615](http
 
 ![HydroFoil boat](https://github.com/ayaromenok/p3dRcHydroFoilBoat/blob/master/png/_assembly.png?raw=true)
 
-## v0.2.0 <a name="#v0_2_0"></a>
+## v0.2.0 <a name="v0_2_0"></a>
 
 - Version from 2021.07.23
 
@@ -33,7 +33,8 @@ Impelented in OpenSCAD. To rebuild STL's required [p3d Lib2 0.2.2.20210615](http
 ![HydroFoil boat](https://github.com/ayaromenok/p3dRcHydroFoilBoat/blob/master/png/scad_v0.2.0.png?raw=true)
 [video from ground](https://www.youtube.com/watch?v=aogEewLZsBY)
 [onboard video](https://www.youtube.com/watch?v=OHG-W-Ka8qo)
-## v0.1.1 <a name="#v0_1_1"></a>
+
+## v0.1.1 <a name="v0_1_1"></a>
 
 - Version from 2021.07.18
 
