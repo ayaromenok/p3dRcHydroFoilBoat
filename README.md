@@ -3,18 +3,27 @@
 ## Table of Contents
 
  - [Introduction](#intro)
- - [Work in Progress status](#wip)
+ - [Status - on hold](#on_hold)
+ - [Version v0.3.0](#v0_3_0)
  - [Version v0.2.0](#v0_2_0)
  - [Version v0.1.1](#v0_1_1)
 
 ## Introduction
 
-Hydrofoil boat with trimaran structure and differentional trust mix props.
+Hydrofoil boat (called "Meteor" in tribute of Rostislav Alexeev hydrofoil ship) with trimaran structure and differentional trust mix props.
 Impelented in OpenSCAD. To rebuild STL's required [p3d Lib2 0.2.2.20210615](https://github.com/ayaromenok/p3dLib)
 
-## Work In Progress status<a name="wip"></a>
+## Status - on hold<a name="on_hold"></a>
 
-![HydroFoil boat](https://github.com/ayaromenok/p3dRcHydroFoilBoat/blob/master/png/_assembly.png?raw=true)
+Due to instability of boat in hydrofoil mode current development is put on hold. New ideas about form of wing required
+
+## v0.3.0 <a name="v0_3_0"></a>
+
+- Version from 2021.08.20
+
+### Issues
+  - stability issues in hydrofoil mode
+  - CoPET printed floats not hydroscopic
 
 ## v0.2.0 <a name="v0_2_0"></a>
 
