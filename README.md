@@ -25,6 +25,9 @@ Due to instability of boat in hydrofoil mode current development is put on hold.
   - stability issues in hydrofoil mode
   - CoPET printed floats not hydroscopic
 
+    ![HydroFoil boat](https://github.com/ayaromenok/p3dRcHydroFoilBoat/blob/master/png/real_v0.3.0.jpg?raw=true)
+    ![HydroFoil boat](https://github.com/ayaromenok/p3dRcHydroFoilBoat/blob/master/png/scad_v0.3.0.png?raw=true)
+
 ## v0.2.0 <a name="v0_2_0"></a>
 
 - Version from 2021.07.23
@@ -38,8 +41,6 @@ Due to instability of boat in hydrofoil mode current development is put on hold.
   - camera connector should be mounted a top of the engine wings and be strong
   - nose gunwale(falschbort) should be much higher for strong wind situation
   
-![HydroFoil boat](https://github.com/ayaromenok/p3dRcHydroFoilBoat/blob/master/png/real_v0.2.0.jpg?raw=true)
-![HydroFoil boat](https://github.com/ayaromenok/p3dRcHydroFoilBoat/blob/master/png/scad_v0.2.0.png?raw=true)
 [video from ground](https://www.youtube.com/watch?v=aogEewLZsBY)
 [onboard video](https://www.youtube.com/watch?v=OHG-W-Ka8qo)
 
